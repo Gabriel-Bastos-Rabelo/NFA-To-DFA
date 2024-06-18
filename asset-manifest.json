@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/NFA-To-DFA/static/css/main.ff02f4b5.css",
+    "main.js": "/NFA-To-DFA/static/js/main.8afcd927.js",
+    "static/js/453.18cf696a.chunk.js": "/NFA-To-DFA/static/js/453.18cf696a.chunk.js",
+    "index.html": "/NFA-To-DFA/index.html",
+    "main.ff02f4b5.css.map": "/NFA-To-DFA/static/css/main.ff02f4b5.css.map",
+    "main.8afcd927.js.map": "/NFA-To-DFA/static/js/main.8afcd927.js.map",
+    "453.18cf696a.chunk.js.map": "/NFA-To-DFA/static/js/453.18cf696a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff02f4b5.css",
+    "static/js/main.8afcd927.js"
+  ]
+}
