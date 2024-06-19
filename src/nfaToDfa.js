@@ -32,6 +32,7 @@ export const nfaToDfa = (nfa) => {
             dfa_transactions[[state, letter]] = [];
         }
     }
+    
   
   
     for (let state in dfa_transactions) {
@@ -43,11 +44,13 @@ export const nfaToDfa = (nfa) => {
                   if (!dfa_transactions[state].includes(j)) {
                       dfa_transactions[state].push(j);
                   }
+                  dfa_transactions[state].sort();
               }
           }
       }
     }
-  
+    
+
   
     let visited = new Set();
     for (let letra of alphabet) {
@@ -87,10 +90,8 @@ export const nfaToDfa = (nfa) => {
     let newFinalStates = []
     let newTransitions = []
   
-    //quero registrar os novos nós, registrar os nós que são finais e as transições
-    //a cada iteração em dfa eu tenho um nó, tenho que 
     
-  
+
   for(let state in dfa_transactions){
       let key = state.split(',')
       if(!newStates.includes(key[0])){
@@ -124,12 +125,58 @@ export const nfaToDfa = (nfa) => {
      
     }
   
-  
+    console.log("Novos estados: ", newStates)
+    console.log("Estado inicial: ", initialState)
+    console.log("Alfabeto: ", alphabet)
+    console.log("Novas transições: ", newTransitions)
+    console.log("Novos estados finais: ", newFinalStates)
   
     return {states: newStates, initialState: initialState, alphabet: alphabet, transitions: newTransitions, finalStates: newFinalStates}
   
     
   }
+
+//Usado somente para testes
+let teste1 = {initialState: '0', finalStates: ['2'], alphabet: ['a', 'b', 'c'], transitions: [
+    { from: '0', symbol: 'a', to: '0' },
+    { from: '0', symbol: 'b', to: '0' },
+    { from: '0', symbol: 'c', to: '1' },
+    { from: '0', symbol: 'c', to: '0' },
+    { from: '1', symbol: 'c', to: '2' },
+    { from: '2', symbol: 'a', to: '2' },
+    { from: '2', symbol: 'b', to: '2' },
+    { from: '2', symbol: 'c', to: '2' }
+]
+, states: ['0', '1', '2']}
+
+let teste2 = {initialState: '0', finalStates: ['2'], alphabet: ['a', 'b'], transitions: [
+    { from: '0', symbol: 'a', to: '0' },
+    { from: '0', symbol: 'a', to: '1' },
+    { from: '0', symbol: 'b', to: '0' },
+    { from: '1', symbol: 'a', to: '2' },
+    { from: '2', symbol: 'a', to: '2' },
+    { from: '2', symbol: 'b', to: '2' }
+], states: ['0', '1', '2']}
+
+
+let teste3 = {initialState: '0', finalStates: ['0', '3'], alphabet: ['a', 'b'], transitions: [
+    { from: '0', symbol: 'a', to: '2' },
+    { from: '0', symbol: 'a', to: '3' },
+    { from: '2', symbol: 'b', to: '1' },
+    { from: '1', symbol: 'b', to: '0' }
+], states: ['0', '1', '2', '3']}
+
+let teste4 = {initialState: '0', finalStates: ['3'], alphabet: ['a', 'b'], transitions: [
+    { from: '0', symbol: 'a', to: '0' },
+    { from: '0', symbol: 'a', to: '1' },
+    { from: '0', symbol: 'b', to: '0' },
+    { from: '0', symbol: 'b', to: '2' },
+    { from: '1', symbol: 'a', to: '3' },
+    { from: '2', symbol: 'b', to: '3' },
+    { from: '3', symbol: 'a', to: '3' },
+    { from: '3', symbol: 'b', to: '3' }
+], states: ['0', '1', '2', '3']}
+nfaToDfa(teste4)
   
   
   function combinations(arr, r) {
@@ -156,7 +203,7 @@ export const nfaToDfa = (nfa) => {
       } else {
           return;
       }
-      if(dfa_transactions[`${vertice[0]},${vertice[1]}`].length > 0){
+      if(dfa_transactions[`${vertice[0]},${vertice[1]}`]?.length > 0){
   
         let s = dfa_transactions[`${vertice[0]},${vertice[1]}`].join('-');
         for (let letra of alphabet) {
