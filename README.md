@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# Transformar AFN para AFD
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma aplicação React que permite transformar um Autômato Finito Não-determinístico (AFN) em um Autômato Finito Determinístico (AFD). O usuário pode inserir estados, transições, símbolos, estado inicial e estados finais de um AFN e visualizar o AFD resultante.
 
-## Available Scripts
+## Pré-requisitos
 
-In the project directory, you can run:
+Para executar este projeto, você precisará ter o Node.js e o npm instalados em sua máquina.
 
-### `npm start`
+## Instalação
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Clone o repositório e navegue até o diretório do projeto:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+git clone https://github.com/Gabriel-Bastos-Rabelo/NFA-To-DFA.git
+```
+Navegue até o diretório
+```
+cd NFA-To-DFA
+```
 
-### `npm test`
+Instale as dependências do projeto:
+```
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Uso
 
-### `npm run build`
+Para iniciar a aplicação em modo de desenvolvimento, execute:
+```
+npm start
+```
+Após isso abra:
+```
+http://localhost:3000 
+```
+para visualizar no seu navegador.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Estrutura do Projeto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+O projeto está organizado da seguinte forma:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
 
-### `npm run eject`
+├── public
+├── src
+│   ├── components
+│   │   ├── Form.js
+│   │   ├── GraphDisplay.js
+│   ├── App.js
+│   ├── index.js
+│   ├── nfaToDfa.js
+│   ├── index.css
+│   ├── reportWebVitals.js
+├── package.json
+├── README.md
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **components/Form.js**: Componente responsável pelo formulário onde o usuário insere os dados do AFN.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **components/GraphDisplay.js**: Componente que exibe o AFD resultante.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **App.js**: Componente principal da aplicação.
 
-## Learn More
+- **nfaToDfa.js**: Função que realiza a transformação de AFN para AFD.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **index.js**: Ponto de entrada da aplicação.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **index.css**: Estilos globais da aplicação.
 
-### Code Splitting
+- **reportWebVitals.js**: Configurações para medir o desempenho da aplicação.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Funcionalidades
+### Formulário
 
-### Analyzing the Bundle Size
+O formulário permite ao usuário adicionar:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Estados**: Adicionar estados do AFN.
+- **Transições**: Adicionar transições do AFN.
+- **Símbolos**: Adicionar símbolos do alfabeto do AFN.
+- **Estado Inicial**: Definir o estado inicial do AFN.
+- **Estados Finais**: Adicionar estados finais do AFN.
 
-### Making a Progressive Web App
+### Visualização do AFD
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Após submeter o formulário, o AFD resultante é exibido com:
 
-### Advanced Configuration
+- **Estados**: Estados do AFD.
+- **Transições**: Transições do AFD.
+- **Símbolos**: Símbolos do alfabeto do AFD.
+- **Estado Inicial**: Estado inicial do AFD.
+- **Estados Finais**: Estados finais do AFD.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Testes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Para executar os testes, utilize o comando:
 
-### `npm run build` fails to minify
+```
+npm test
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
