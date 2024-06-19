@@ -28,26 +28,33 @@ const GraphDisplay = ({ afd }) => {
 
   return (
     <div>
-      <div className="card">
-        <div className="card-body">
-          <h2 className="card-title">AFD Resultante</h2>
-          <div className="mb-2">
+      <div className="card mt-4 shadow">
+      <div className="card-body">
+        <h2 className="card-title text-center">AFD Resultante</h2>
+        <ul className="list-group list-group-flush">
+          <li className="list-group-item">
             <strong>Estados:</strong> {afd.states && afd.states.join(', ')}
-          </div>
-          <div className="mb-2">
-            <strong>Transições:</strong> {afd.transitions && afd.transitions.join('; ')}
-          </div>
-          <div className="mb-2">
+          </li>
+          <li className="list-group-item">
+            <strong>Transições:</strong>
+            <ul>
+              {afd.transitions && afd.transitions.map((t, index) => (
+                <li key={index}>{`${t[0]} --${t[1]}--> ${t[2]}`}</li>
+              ))}
+            </ul>
+          </li>
+          <li className="list-group-item">
             <strong>Símbolos:</strong> {afd.alphabet && afd.alphabet.join(', ')}
-          </div>
-          <div className="mb-2">
+          </li>
+          <li className="list-group-item">
             <strong>Estado Inicial:</strong> {afd.initialState && afd.initialState}
-          </div>
-          <div className="mb-2">
+          </li>
+          <li className="list-group-item">
             <strong>Estados Finais:</strong> {afd.finalStates && afd.finalStates.join(', ')}
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
+    </div>
       <div className="d-flex justify-content-center mt-4 mb-4">
       <div id="graph"></div>
       </div>
